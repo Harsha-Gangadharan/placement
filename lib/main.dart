@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:placement/apiauth/provider/colourlist.dart';
-import 'package:placement/apiauth/provider/colourprovider.dart';
+import 'package:placement/apimachinetest/provider/colourlist.dart';
+import 'package:placement/apimachinetest/provider/colourprovider.dart';
 import 'package:provider/provider.dart';
 
 void main() {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:placement/apiauth/provider/userprovider.dart';
-import 'package:placement/apiauth/userdetails.dart';
+import 'package:placement/apimachinetest/provider/userprovider.dart';
+import 'package:placement/apimachinetest/userdetails.dart';
 import 'package:provider/provider.dart';
 
 class UserListPage extends StatelessWidget {
