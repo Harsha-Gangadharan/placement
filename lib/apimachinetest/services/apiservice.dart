@@ -4,29 +4,21 @@ import 'package:http/http.dart' as http;
 class ApiService {
   static const String baseUrl = 'https://reqres.in/api';
 
-  // Method for user registration
   Future<void> registerUser(String email, String password) async {
     final response = await http.post(
       Uri.parse('$baseUrl/register'),
       headers: {'Content-Type': 'application/json'},
-      body: jsonEncode({
-        'email': email,
-        'password': password,
-      }),
+      body: jsonEncode({'email': email, 'password': password}),
     );
 
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      // Registration successful
+    if (response.statusCode == 200) {
       return;
     } else {
-      // Handle error response from API
       final responseData = jsonDecode(response.body);
-      String errorMessage = responseData['error'] ?? 'Unknown error occurred';
-      throw Exception(errorMessage);
+      throw Exception(responseData['error'] ?? 'Registration failed');
     }
   }
 
-  // Method for fetching users
   Future<List<dynamic>> fetchUsers() async {
     final response = await http.get(Uri.parse('$baseUrl/users?page=1'));
 
@@ -38,7 +30,6 @@ class ApiService {
     }
   }
 
-  // Method for fetching colors (resources)
   Future<List<dynamic>> fetchColors() async {
     final response = await http.get(Uri.parse('$baseUrl/unknown'));
 
@@ -50,4 +41,3 @@ class ApiService {
     }
   }
 }
-

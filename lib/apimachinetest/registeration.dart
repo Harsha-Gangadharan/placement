@@ -14,7 +14,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
 
   void _register() async {
     if (_formKey.currentState?.validate() ?? false) {
-      // Show a loading indicator while registering
       showDialog(
         context: context,
         barrierDismissible: false,
@@ -28,14 +27,15 @@ class _RegistrationPageState extends State<RegistrationPage> {
           _emailController.text,
           _passwordController.text,
         );
-        Navigator.pop(context); // Close loading indicator
+        Navigator.pop(context);
 
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Registration successful!')),
         );
-        Navigator.pop(context); // Go back to the user list
+
+        Navigator.pop(context);
       } catch (e) {
-        Navigator.pop(context); // Close loading indicator
+        Navigator.pop(context);
 
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Registration failed: ${e.toString()}')),
